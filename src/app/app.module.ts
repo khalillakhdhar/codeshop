@@ -17,6 +17,7 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { ConnexionComponent } from './connexion/connexion.component';
 
 
 
@@ -29,11 +30,16 @@ import { environment } from '../environments/environment';
     RouterModule,
     AppRoutingModule,
     NgbModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule,
     ToastrModule.forRoot()
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    ConnexionComponent
 
   ],
   providers: [],
