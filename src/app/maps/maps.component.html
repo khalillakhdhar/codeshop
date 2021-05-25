@@ -17,22 +17,22 @@
                   <form>
                     <div class="mb-3">
                       <label for="titreinput" class="form-label">Titre</label>
-                      <input type="text" class="form-control" id="titreinput" placeholder="Titre">
+                      <input type="text" name="titre" [(ngModel)]="produit.titre" class="form-control" id="titreinput" placeholder="Titre">
                     </div>
                     <div class="mb-3">
                       <label for="codebar" class="form-label">code à barre</label>
-                      <input type="text" class="form-control" id="titreinput" placeholder="code à barre">
+                      <input type="text" name="barre" [(ngModel)]="produit.codebarre" class="form-control" id="titreinput" placeholder="code à barre">
                     </div>
                     <div class="mb-3">
                       <label for="codebar" class="form-label">prix</label>
-                      <input type="number" class="form-control" id="codebar" placeholder="prix en Millimes">
+                      <input type="number" name="p" [(ngModel)]="produit.prix" class="form-control" id="codebar" placeholder="prix en Millimes">
                     </div>
                     <div class="mb-3">
-                      <label for="Description" class="form-label">Description</label>
-                      <textarea class="form-control" id="Description" placeholder="Description détaillé"></textarea>
+                      <label for="Description"  class="form-label">Description</label>
+                      <textarea class="form-control" name="d" [(ngModel)]="produit.description" id="Description" placeholder="Description détaillé"></textarea>
                     </div>
                     <div class="mb-3">
-                     <button class="btn btn-primary">ajouter</button>
+                     <button (click)="save()" class="btn btn-primary">ajouter</button>
                     </div>
                   
                   
@@ -49,14 +49,29 @@
 
           </div>
         </div>
+        <table class="table table-bordered">
+          <thead><tr>
+            <th>produit</th>
+            <th>description</th>
+            <th>prix</th>
+            <th>Action</th>
+          </tr></thead>
+          <tbody><tr *ngFor="let pr of produits">
+            <td>{{pr.titre}}</td>
+            <td>{{pr.description}}</td>
+            <td>{{pr.prix}}</td>
+            <td><button (click)="delete(pr.id)" class="btn btn-danger">supprimer</button></td>
+          </tr></tbody>
+      
+      
+      
+        </table>
       </div>
+ 
     </div>
+    
   </div>
 
 
-  <table>
-
-
-    
-  </table>
+  
 </div>
