@@ -24,5 +24,11 @@ produit:Produit;
 
 
   }
+  save()
+  {
+      let pr=Object.assign({},this.produit);
+
+  }
+
 
 }
