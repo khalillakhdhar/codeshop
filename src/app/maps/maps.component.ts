@@ -27,6 +27,9 @@ produit:Produit;
   save()
   {
       let pr=Object.assign({},this.produit);
+      this.produitService.create_NewProduit(pr);
+      alert("ajouté avec succés");
+      this.produit=new Produit();
 
   }
 
