@@ -11,7 +11,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/user-profile', title: 'Profile',  icon:'education_atom', class: '' },
     { path: '/maps', title: 'Produit',  icon:'location_map-big', class: '' },
 
-    { path: '/upgrade', title: 'Se déconnecter',  icon:'objects_spaceship', class: 'active active-pro' }
+    { path: '/connexion', title: 'Se déconnecter',  icon:'objects_spaceship', class: 'active active-pro' }
 
 ];
 
