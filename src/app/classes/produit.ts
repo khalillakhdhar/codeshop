@@ -1,9 +1,8 @@
 export class Produit {
     id:string;
-    libele:string;
+    titre:string;
     description:string;
     codebarre:string;
-    photo:string;
     prix:number;
 
 
