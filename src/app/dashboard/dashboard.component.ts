@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { Commande } from '../classes/commande';
+import { Commandeservice } from '../services/commande.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,6 +22,7 @@ export class DashboardComponent implements OnInit {
 
   public gradientChartOptionsConfiguration: any;
   public gradientChartOptionsConfigurationWithNumbersAndGrid: any;
+  commandes:Commande[];
 
   public lineChartType;
   public lineChartData:Array<any>;
@@ -57,9 +60,10 @@ export class DashboardComponent implements OnInit {
       return "rgb(" + r + ", " + g + ", " + b + ")";
     }
   }
-  constructor() { }
+  constructor(private commandeService: Commandeservice ) { }
 
   ngOnInit() {
+    this.readcmd();
     this.chartColor = "#FFFFFF";
     this.canvas = document.getElementById("bigDashboardChart");
     this.ctx = this.canvas.getContext("2d");
@@ -412,4 +416,31 @@ export class DashboardComponent implements OnInit {
 
     this.lineChartGradientsNumbersType = 'bar';
   }
+  readcmd()
+  {
+  this.commandeService.read_Commandes().subscribe(data => {
+  
+    this.commandes = data.map(e => {
+      return {
+        id: e.payload.doc.id,
+  
+        produit: e.payload.doc.data()["produit"],
+        date_heure: e.payload.doc.data()["date_heure"],
+        etat: e.payload.doc.data()["etat"],
+        prix: e.payload.doc.data()["prix"],
+        code: e.payload.doc.data()["code"],
+       
+        
+  
+      };
+    });
+  
+  
+    console.log("liste",this.commandes);
+  });
+}
+  
+  
+  
+  
 }

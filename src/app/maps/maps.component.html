@@ -14,25 +14,25 @@
                 <div class="col">
                 </div>
                 <div class="col">
-                  <form>
+                  <form #myform="ngForm">
                     <div class="mb-3">
                       <label for="titreinput" class="form-label">Titre</label>
-                      <input type="text" name="titre" [(ngModel)]="produit.titre" class="form-control" id="titreinput" placeholder="Titre">
+                      <input type="text" required name="titre" [(ngModel)]="produit.titre" class="form-control" id="titreinput" placeholder="Titre">
                     </div>
                     <div class="mb-3">
-                      <label for="codebar" class="form-label">code à barre</label>
-                      <input type="text" name="barre" [(ngModel)]="produit.codebarre" class="form-control" id="titreinput" placeholder="code à barre">
+                      <label for="codebar"  class="form-label">code à barre</label>
+                      <input type="text" required pattern="[0-9]{12,}" name="barre" [(ngModel)]="produit.codebarre" class="form-control" id="titreinput" placeholder="code à barre">
                     </div>
                     <div class="mb-3">
                       <label for="codebar" class="form-label">prix</label>
-                      <input type="number" name="p" [(ngModel)]="produit.prix" class="form-control" id="codebar" placeholder="prix en Millimes">
+                      <input type="number" required min="1" name="p" [(ngModel)]="produit.prix" class="form-control" id="codebar" placeholder="prix en Millimes">
                     </div>
                     <div class="mb-3">
                       <label for="Description"  class="form-label">Description</label>
-                      <textarea class="form-control" name="d" [(ngModel)]="produit.description" id="Description" placeholder="Description détaillé"></textarea>
+                      <textarea class="form-control" required name="d" [(ngModel)]="produit.description" id="Description" placeholder="Description détaillé"></textarea>
                     </div>
                     <div class="mb-3">
-                     <button (click)="save()" class="btn btn-primary">ajouter</button>
+                     <button [disabled]="myform.invalid" (click)="save()" class="btn btn-primary">ajouter</button>
                     </div>
                   
                   
