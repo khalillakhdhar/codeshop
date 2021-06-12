@@ -28,6 +28,10 @@
                       <input type="number" required min="1" name="p" [(ngModel)]="produit.prix" class="form-control" id="codebar" placeholder="prix en Millimes">
                     </div>
                     <div class="mb-3">
+                      <label for="direction" class="form-label">prix</label>
+                      <input type="text" required name="d" [(ngModel)]="produit.direction" class="form-control" id="codebar" placeholder="produit simulaires">
+                    </div>
+                    <div class="mb-3">
                       <label for="Description"  class="form-label">Description</label>
                       <textarea class="form-control" required name="d" [(ngModel)]="produit.description" id="Description" placeholder="Description détaillé"></textarea>
                     </div>
@@ -54,12 +58,14 @@
             <th>produit</th>
             <th>description</th>
             <th>prix</th>
+            <th>produits simulaires</th>
             <th>Action</th>
           </tr></thead>
           <tbody><tr *ngFor="let pr of produits">
             <td>{{pr.titre}}</td>
             <td>{{pr.description}}</td>
             <td>{{pr.prix}}</td>
+            <td>{{pr.direction}}</td>
             <td><button (click)="delete(pr.id)" class="btn btn-danger">supprimer</button></td>
           </tr></tbody>
       

@@ -45,6 +45,7 @@ this.read();
          description: e.payload.doc.data()["description"],
          prix: e.payload.doc.data()["prix"],
          codebarre: e.payload.doc.data()["codebarre"],
+         direction: e.payload.doc.data()["direction"],
         
   
   

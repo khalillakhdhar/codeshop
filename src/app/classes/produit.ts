@@ -3,6 +3,7 @@ export class Produit {
     titre:string;
     description:string;
     codebarre:string;
+    direction:string;
     prix:number;
 
 
